@@ -1,17 +1,10 @@
 <div>
   <div>
     <h1>
-      Story #<%= @the_story.id %> details
+      <%= @the_story.title %>
     </h1>
 
     <dl>
-      <dt>
-        Title
-      </dt>
-      <dd>
-        <%= @the_story.title %>
-      </dd>
-
       <dt>
         Story
       </dt>
@@ -20,35 +13,21 @@
       </dd>
 
       <dt>
-        Owner
+        Author
       </dt>
       <dd>
-        <%= @the_story.owner_id %>
+        <%= @the_story.owner.username %>
       </dd>
 
       <dt>
-        Description
-      </dt>
-      <dd>
-        <%= @the_story.description %>
-      </dd>
-
-      <dt>
-        Boomarks count
-      </dt>
-      <dd>
-        <%= @the_story.boomarks_count %>
-      </dd>
-
-      <dt>
-        Created at
+        Written
       </dt>
       <dd>
         <%= time_ago_in_words(@the_story.created_at) %> ago
       </dd>
 
       <dt>
-        Updated at
+        Revised
       </dt>
       <dd>
         <%= time_ago_in_words(@the_story.updated_at) %> ago
@@ -111,16 +90,15 @@
     </div>
   <hr>
 <% else %>
+  <%# <div>
     <h2> 
       Bookmark
     </h2>
-
-    <div>
-      <a href="/insert_bookmark/<%= @the_story.id %>">
-        <button>
-          Bookmark Story
-        </button>
-      </a>
-    </div>
-  <hr>
+  <div>
+      <button>
+        Bookmark Story
+      </button>
+    </a>
+  </div>
+  <hr> %>
 <% end %>

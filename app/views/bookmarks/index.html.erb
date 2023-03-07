@@ -8,47 +8,16 @@
 
 <hr>
 
-<div>
-  <div>
-    <h2>
-      Add a new bookmark
-    </h2>
 
-    <form action="/insert_bookmark" method="post">
-      <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id">
-      </div>
-
-      <div>
-        <label for="story_id_box">
-          Story
-        </label>
-
-        <input type="text" id="story_id_box" name="query_story_id">
-      </div>
-
-      <button>
-        Create bookmark
-      </button>
-    </form>
-  </div>
-</div>
 
 <hr>
 <div>
   <div>
     <table border="1">
       <tr>
-        <th>
-          ID
-        </th>
 
         <th>
-          User
+          Author
         </th>
 
         <th>
@@ -69,10 +38,6 @@
 
       <% @list_of_bookmarks.each do |a_bookmark| %>
       <tr>
-        <td>
-          <%= a_bookmark.id %>
-        </td>
-
         <td>
           <%= a_bookmark.user_id %>
         </td>
