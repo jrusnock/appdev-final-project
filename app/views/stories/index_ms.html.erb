@@ -1,0 +1,93 @@
+<div>
+  <div>
+    <h1>
+      My Stories
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>      
+      <button>
+        <a href="/stories/new_story">Create New Story</a> 
+      </button>
+    </h2>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+
+        <th>
+          Title
+        </th>
+
+        <th>
+          Owner
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          Boomarks count
+        </th>
+
+        <th>
+          Written
+        </th>
+
+        <th>
+          Revised
+        </th>
+
+        <th>
+        Read
+        </th>
+      </tr>
+
+      <% @list_of_stories.each do |a_story| %>
+      <tr>
+
+        <td>
+          <%= a_story.title %>
+        </td>
+
+        <td>
+          <%= a_story.owner.username %>
+        </td>
+
+        <td>
+          <%= a_story.description %>
+        </td>
+
+        <td>
+          <%= a_story.boomarks_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_story.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_story.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/stories/<%= a_story.id %>">
+            Read This Story
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

@@ -7,6 +7,15 @@ class StoriesController < ApplicationController
     render({ :template => "stories/index.html.erb" })
   end
 
+  def index_ms
+    user_id = session.fetch(:user_id)
+    matching_stories = Story.where({:owner_id => user_id })
+
+    @list_of_stories = matching_stories.order({ :created_at => :desc })
+
+    render({ :template => "stories/index_ms.html.erb" })
+  end
+
   def show
     the_id = params.fetch("path_id")
 

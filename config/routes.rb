@@ -49,7 +49,7 @@ Rails.application.routes.draw do
           
   # READ
   get("/stories", { :controller => "stories", :action => "index" })
-  
+  get("/my_stories", { :controller => "stories", :action => "index_ms" })
   get("/stories/:path_id", { :controller => "stories", :action => "show" })
   
   # UPDATE
