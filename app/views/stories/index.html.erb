@@ -1,0 +1,150 @@
+<div>
+  <div>
+    <h1>
+      List of all stories
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new story
+    </h2>
+
+    <form action="/insert_story" method="post">
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title">
+      </div>
+
+      <div>
+        <label for="story_box">
+          Story
+        </label>
+
+        <textarea id="story_box" name="query_story" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="owner_id_box">
+          Owner
+        </label>
+
+        <input type="text" id="owner_id_box" name="query_owner_id">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="query_description" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="boomarks_count_box">
+          Boomarks count
+        </label>
+
+        <input type="text" id="boomarks_count_box" name="query_boomarks_count">
+      </div>
+
+      <button>
+        Create story
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Title
+        </th>
+
+        <th>
+          Story
+        </th>
+
+        <th>
+          Owner
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          Boomarks count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_stories.each do |a_story| %>
+      <tr>
+        <td>
+          <%= a_story.id %>
+        </td>
+
+        <td>
+          <%= a_story.title %>
+        </td>
+
+        <td>
+          <%= a_story.story %>
+        </td>
+
+        <td>
+          <%= a_story.owner_id %>
+        </td>
+
+        <td>
+          <%= a_story.description %>
+        </td>
+
+        <td>
+          <%= a_story.boomarks_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_story.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_story.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/stories/<%= a_story.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

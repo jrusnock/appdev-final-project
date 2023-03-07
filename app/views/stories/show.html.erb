@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Story #<%= @the_story.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/stories">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_story/<%= @the_story.id %>">
+          Delete story
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Title
+      </dt>
+      <dd>
+        <%= @the_story.title %>
+      </dd>
+
+      <dt>
+        Story
+      </dt>
+      <dd>
+        <%= @the_story.story %>
+      </dd>
+
+      <dt>
+        Owner
+      </dt>
+      <dd>
+        <%= @the_story.owner_id %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @the_story.description %>
+      </dd>
+
+      <dt>
+        Boomarks count
+      </dt>
+      <dd>
+        <%= @the_story.boomarks_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_story.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_story.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit story
+    </h2>
+
+    <form action="/modify_story/<%= @the_story.id %>"  method="post" >
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title" value="<%= @the_story.title %>">
+      </div>
+
+      <div>
+        <label for="story_box">
+          Story
+        </label>
+
+        <textarea id="story_box" name="query_story"><%= @the_story.story %></textarea>
+      </div>
+
+      <div>
+        <label for="owner_id_box">
+          Owner
+        </label>
+
+        <input type="text" id="owner_id_box" name="query_owner_id" value="<%= @the_story.owner_id %>">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="query_description"><%= @the_story.description %></textarea>
+      </div>
+
+      <div>
+        <label for="boomarks_count_box">
+          Boomarks count
+        </label>
+
+        <input type="text" id="boomarks_count_box" name="query_boomarks_count" value="<%= @the_story.boomarks_count %>">
+      </div>
+
+      <button>
+        Update story
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
