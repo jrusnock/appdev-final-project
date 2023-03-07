@@ -25,12 +25,10 @@ Rails.application.routes.draw do
   # Routes for the Bookmark resource:
 
   # CREATE
-  post("/insert_bookmark", { :controller => "bookmarks", :action => "create" })
+  post("/insert_bookmark/:path_id", { :controller => "bookmarks", :action => "create" })
           
   # READ
   get("/bookmarks", { :controller => "bookmarks", :action => "index" })
-  
-  get("/bookmarks/:path_id", { :controller => "bookmarks", :action => "show" })
   
   # UPDATE
   

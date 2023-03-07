@@ -82,15 +82,16 @@
     </div>
   <hr>
 <% else %>
-  <%# <div>
+  <div>
     <h2> 
       Bookmark
     </h2>
   <div>
+    <form action="/insert_bookmark/<%= @the_story.id %>" method="post">
       <button>
         Bookmark Story
       </button>
     </a>
   </div>
-  <hr> %>
+  <hr>
 <% end %>

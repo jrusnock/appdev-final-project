@@ -28,7 +28,7 @@ class StoriesController < ApplicationController
 
   def create
     the_story = Story.new
-    the_story.title = params.fetch("query_title")
+    the_story.title = params.fetch("query_title").titlecase
     the_story.description = params.fetch("query_description")
 
     client = OpenAI::Client.new(access_token: ENV.fetch("CHAT_GPT_KEY"))
@@ -55,7 +55,7 @@ class StoriesController < ApplicationController
     the_id = params.fetch("path_id")
     the_story = Story.where({ :id => the_id }).at(0)
 
-    the_story.title = params.fetch("query_title")
+    the_story.title = params.fetch("query_title").titlecase
     the_story.description = params.fetch("query_description") 
     the_story.owner_id = session.fetch(:user_id)
     the_story.boomarks_count = 0

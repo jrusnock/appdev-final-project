@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all bookmarks
+      My Bookmarks
     </h1>
   </div>
 </div>
@@ -17,11 +17,11 @@
       <tr>
 
         <th>
-          Author
+          Title
         </th>
 
         <th>
-          Story
+          Author
         </th>
 
         <th>
@@ -29,35 +29,43 @@
         </th>
 
         <th>
-          Updated at
+          Read
         </th>
 
         <th>
+          Delete Bookmark
         </th>
+
       </tr>
 
       <% @list_of_bookmarks.each do |a_bookmark| %>
       <tr>
         <td>
-          <%= a_bookmark.user_id %>
+          <% a_story = Story.where(:id => a_bookmark.story_id).at(0) %>
+          <%= a_story.title %>
         </td>
 
         <td>
-          <%= a_bookmark.story_id %>
+          <% a_story = Story.where(:id => a_bookmark.story_id).at(0) %>
+          <%= User.where(:id => a_story.owner_id).at(0).username %>
         </td>
 
         <td>
           <%= time_ago_in_words(a_bookmark.created_at) %> ago
         </td>
+        
         <td>
-          <%= time_ago_in_words(a_bookmark.updated_at) %> ago
+          <% a_story = Story.where(:id => a_bookmark.story_id).at(0) %>
+          <a href="/stories/<%= a_story.id %>">
+            Read This Story
         </td>
-
+        
         <td>
-          <a href="/bookmarks/<%= a_bookmark.id %>">
-            Show details
+          <a href="/delete_bookmark/<%=a_bookmark.id %>">
+            Delete Bookmark
           </a>
         </td>
+
       </tr>
       <% end %>
     </table>
