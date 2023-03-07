@@ -67,16 +67,9 @@
   <div>
     <table border="1">
       <tr>
-        <th>
-          ID
-        </th>
 
         <th>
           Title
-        </th>
-
-        <th>
-          Story
         </th>
 
         <th>
@@ -92,33 +85,27 @@
         </th>
 
         <th>
-          Created at
+          Written
         </th>
 
         <th>
-          Updated at
+          Revised
         </th>
 
         <th>
+        Read
         </th>
       </tr>
 
       <% @list_of_stories.each do |a_story| %>
       <tr>
-        <td>
-          <%= a_story.id %>
-        </td>
 
         <td>
           <%= a_story.title %>
         </td>
 
         <td>
-          <%= a_story.story %>
-        </td>
-
-        <td>
-          <%= a_story.owner_id %>
+          <%= a_story.owner.username %>
         </td>
 
         <td>
@@ -138,7 +125,7 @@
 
         <td>
           <a href="/stories/<%= a_story.id %>">
-            Show details
+            Read This Story
           </a>
         </td>
       </tr>
