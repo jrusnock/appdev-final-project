@@ -21,9 +21,9 @@ class StoriesController < ApplicationController
     the_story = Story.new
     the_story.title = params.fetch("query_title")
     the_story.story = params.fetch("query_story")
-    the_story.owner_id = params.fetch("query_owner_id")
+    the_story.owner_id = session.fetch(:user_id)
     the_story.description = params.fetch("query_description")
-    the_story.boomarks_count = params.fetch("query_boomarks_count")
+    the_story.boomarks_count = 0
 
     if the_story.valid?
       the_story.save
@@ -39,9 +39,9 @@ class StoriesController < ApplicationController
 
     the_story.title = params.fetch("query_title")
     the_story.story = params.fetch("query_story")
-    the_story.owner_id = params.fetch("query_owner_id")
+    the_story.owner_id = session.fetch(:user_id)
     the_story.description = params.fetch("query_description")
-    the_story.boomarks_count = params.fetch("query_boomarks_count")
+    the_story.boomarks_count = 0
 
     if the_story.valid?
       the_story.save

@@ -4,20 +4,6 @@
       Story #<%= @the_story.id %> details
     </h1>
 
-    <div>
-      <div>
-        <a href="/stories">
-          Go back
-        </a>
-      </div>
-
-      <div>
-        <a href="/delete_story/<%= @the_story.id %>">
-          Delete story
-        </a>
-      </div>
-    </div>
-
     <dl>
       <dt>
         Title
@@ -77,9 +63,9 @@
 <div>
   <div>
     <h2>
-      Edit story
+      Update
     </h2>
-
+    
     <form action="/modify_story/<%= @the_story.id %>"  method="post" >
       <div>
         <label for="title_box">
@@ -95,14 +81,6 @@
         </label>
 
         <textarea id="story_box" name="query_story"><%= @the_story.story %></textarea>
-      </div>
-
-      <div>
-        <label for="owner_id_box">
-          Owner
-        </label>
-
-        <input type="text" id="owner_id_box" name="query_owner_id" value="<%= @the_story.owner_id %>">
       </div>
 
       <div>
@@ -122,10 +100,22 @@
       </div>
 
       <button>
-        Update story
+        Update Story
       </button>
     </form>
   </div>
-</div>
 
+<hr>
+  <h2> 
+    Delete
+  </h2>
+
+  <div>
+    <a href="/delete_story/<%= @the_story.id %>">
+      <button>
+        Delete Story
+      </button>
+    </a>
+  </div>
+</div>
 <hr>
