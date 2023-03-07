@@ -59,8 +59,7 @@
 
 <hr>
 
-
-<div>
+<% if session[:user_id] == @the_story.owner_id %>
   <div>
     <h2>
       Update
@@ -91,31 +90,37 @@
         <textarea id="description_box" name="query_description"><%= @the_story.description %></textarea>
       </div>
 
-      <div>
-        <label for="boomarks_count_box">
-          Boomarks count
-        </label>
-
-        <input type="text" id="boomarks_count_box" name="query_boomarks_count" value="<%= @the_story.boomarks_count %>">
-      </div>
-
       <button>
         Update Story
       </button>
     </form>
   </div>
 
-<hr>
-  <h2> 
-    Delete
-  </h2>
+  <hr>
 
-  <div>
-    <a href="/delete_story/<%= @the_story.id %>">
-      <button>
-        Delete Story
-      </button>
-    </a>
-  </div>
-</div>
-<hr>
+    <h2> 
+      Delete
+    </h2>
+
+    <div>
+      <a href="/delete_story/<%= @the_story.id %>">
+        <button>
+          Delete Story
+        </button>
+      </a>
+    </div>
+  <hr>
+<% else %>
+    <h2> 
+      Bookmark
+    </h2>
+
+    <div>
+      <a href="/insert_bookmark/<%= @the_story.id %>">
+        <button>
+          Bookmark Story
+        </button>
+      </a>
+    </div>
+  <hr>
+<% end %>

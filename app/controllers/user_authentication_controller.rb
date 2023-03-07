@@ -46,9 +46,9 @@ class UserAuthenticationController < ApplicationController
     @user.password = params.fetch("query_password")
     @user.password_confirmation = params.fetch("query_password_confirmation")
     @user.username = params.fetch("query_username")
-    @user.sent_follow_requests_count = params.fetch("query_sent_follow_requests_count")
-    @user.received_follow_requests_count = params.fetch("query_received_follow_requests_count")
-    @user.own_stories_count = params.fetch("query_own_stories_count")
+    @user.sent_follow_requests_count = 0
+    @user.received_follow_requests_count = 0
+    @user.own_stories_count = 0
 
     save_status = @user.save
 
