@@ -59,4 +59,8 @@ class StoriesController < ApplicationController
 
     redirect_to("/stories", { :notice => "Story deleted successfully."} )
   end
+
+  def generate
+    render({ :template => "stories/new_story.html.erb" })
+  end
 end

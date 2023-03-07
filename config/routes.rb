@@ -44,6 +44,7 @@ Rails.application.routes.draw do
   # Routes for the Story resource:
 
   # CREATE
+  get("/stories/new_story", { :controller => "stories", :action => "generate" })
   post("/insert_story", { :controller => "stories", :action => "create" })
           
   # READ
