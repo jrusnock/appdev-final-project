@@ -20,9 +20,18 @@ class StoriesController < ApplicationController
   def create
     the_story = Story.new
     the_story.title = params.fetch("query_title")
-    the_story.story = params.fetch("query_story")
-    the_story.owner_id = session.fetch(:user_id)
     the_story.description = params.fetch("query_description")
+
+    client = OpenAI::Client.new(access_token: ENV.fetch("CHAT_GPT_KEY"))
+    response = client.chat(
+      parameters: {
+          model: "gpt-3.5-turbo", # Required.
+          messages: [{ role: "user", content: "Create a one paragraph story based on the title: " + the_story.title + "and the description:" + the_story.description}], # Required.
+          temperature: 0.7,
+      })
+    the_story.story = puts response.dig("choices", 0, "message", "content")
+    
+    the_story.owner_id = session.fetch(:user_id)
     the_story.boomarks_count = 0
 
     if the_story.valid?
