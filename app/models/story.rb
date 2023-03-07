@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: stories
+#
+#  id             :integer          not null, primary key
+#  boomarks_count :integer
+#  description    :text
+#  story          :text
+#  title          :string
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  owner_id       :integer
+#
 class Story < ApplicationRecord
   validates(:story, { :presence => true })
   validates(:owner_id, { :presence => true })
