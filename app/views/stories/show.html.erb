@@ -47,23 +47,15 @@
     <form action="/modify_story/<%= @the_story.id %>"  method="post" >
       <div>
         <label for="title_box">
-          Title
+          New Title
         </label>
 
         <input type="text" id="title_box" name="query_title" value="<%= @the_story.title %>">
       </div>
 
       <div>
-        <label for="story_box">
-          Story
-        </label>
-
-        <textarea id="story_box" name="query_story"><%= @the_story.story %></textarea>
-      </div>
-
-      <div>
         <label for="description_box">
-          Description
+          New Description
         </label>
 
         <textarea id="description_box" name="query_description"><%= @the_story.description %></textarea>
