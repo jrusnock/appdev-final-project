@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-
+  # Route for the Home Page:
+  get("/", { :controller => "user_authentication", :action => "home" })
 
   # Routes for the Follow request resource:
 
