@@ -29,11 +29,11 @@ class StoriesController < ApplicationController
           messages: [{ role: "user", content: "Create a one paragraph story based on the title: " + the_story.title + "and the description:" + the_story.description}], # Required.
           temperature: 0.7,
       })
-    the_story.story = puts response.dig("choices", 0, "message", "content")
+    the_story.story = response.dig("choices", 0, "message", "content").strip
     
     the_story.owner_id = session.fetch(:user_id)
     the_story.boomarks_count = 0
-
+    
     if the_story.valid?
       the_story.save
       redirect_to("/stories", { :notice => "Story created successfully." })
@@ -50,11 +50,23 @@ class StoriesController < ApplicationController
     the_story.story = params.fetch("query_story")
     the_story.owner_id = session.fetch(:user_id)
     the_story.description = params.fetch("query_description")
+    
     the_story.boomarks_count = 0
+
+    client = OpenAI::Client.new(access_token: ENV.fetch("CHAT_GPT_KEY"))
+    response = client.edits(
+      parameters: {
+          model: "gpt-3.5-turbo",
+          input: the_story.story,
+          instruction: the_story.description
+      }
+    )
+    
+    the_story.story = response.dig("choices", 0, "text")
 
     if the_story.valid?
       the_story.save
-      redirect_to("/stories/#{the_story.id}", { :notice => "Story updated successfully."} )
+      redirect_to("/stories", { :notice => "Story updated successfully."} )
     else
       redirect_to("/stories/#{the_story.id}", { :alert => the_story.errors.full_messages.to_sentence })
     end
