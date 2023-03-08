@@ -21,7 +21,7 @@
       <nav>
         <% if session[:user_id] != nil %>
           <a href="/"> Home </a>
-          <a href="/stories" style="border: 2px blue solid; padding: 5px"> Library </a>
+          <a href="/stories" class="nav-button"> Library </a>
           <a href="/my_stories"> My Stories </a>
           <%# this doesn't work, not user specific? %>
           <a href="/bookmarks"> My Bookmarks </a>
