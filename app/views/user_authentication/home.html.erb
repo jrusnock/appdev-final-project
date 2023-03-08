@@ -1,2 +1,14 @@
 <h1>Scribble</h1>
 <h2>Create your own stories </h2>
+
+<% if session[:user_id] != nil %>
+
+  <div class="container-fluid"> 
+    <span class="main-button" > 
+      <a href="/stories/new_story">Create New Story</a>      
+    </span>
+  </div>
+  
+<% else %>
+<h2>Sign In to Start Creating Stories</h2>
+<% end %>

@@ -13,13 +13,15 @@
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
 
+    <link rel="stylesheet" href="css/mystyles.css">
+    
   </head>
 
   <body>
       <nav>
         <% if session[:user_id] != nil %>
           <a href="/"> Home </a>
-          <a href="/stories"> Library </a>
+          <a href="/stories" style="border: 2px blue solid; padding: 5px"> Library </a>
           <a href="/my_stories"> My Stories </a>
           <%# this doesn't work, not user specific? %>
           <a href="/bookmarks"> My Bookmarks </a>
