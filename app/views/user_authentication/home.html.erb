@@ -1,12 +1,15 @@
 <link rel="stylesheet" href="/my_styles.css">
 
-<h1>Scribble</h1>
+<div class = "row-center" >
+  <h1>Scribble</h1>
+</div>
+
 <h2>Create your own stories </h2>
 
 <% if session[:user_id] != nil %>
-
-  <span class="main-button"></span>
-      <a href="/stories/new_story">Create New Story</a>
+  <div class = "row">
+    <a class="main-button" href="/stories/new_story">Create New Story</a>
+  </div>
 <% else %>
-<h2>Sign In to Start Creating Stories</h2>
+  <h2>Sign In to Start Creating Stories</h2>
 <% end %>

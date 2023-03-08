@@ -5,35 +5,19 @@
     <h1>
       <%= @the_story.title %>
     </h1>
-
-    <dl>
-      <dt>
-        Story
-      </dt>
-      <dd>
-        <%= @the_story.story %>
-      </dd>
+    <p><%= @the_story.story %></p>
 
       <dt>
-        Author
+        Author: <%= @the_story.owner.username %> 
       </dt>
-      <dd>
-        <%= @the_story.owner.username %>
-      </dd>
 
       <dt>
-        Written
+        Written: <%= time_ago_in_words(@the_story.created_at) %> ago
       </dt>
-      <dd>
-        <%= time_ago_in_words(@the_story.created_at) %> ago
-      </dd>
 
       <dt>
-        Revised
+        Revised: <%= time_ago_in_words(@the_story.updated_at) %> ago
       </dt>
-      <dd>
-        <%= time_ago_in_words(@the_story.updated_at) %> ago
-      </dd>
     </dl>
   </div>
 </div>
@@ -53,19 +37,18 @@
         </label>
 
         <input type="text" id="title_box" name="query_title" value="<%= @the_story.title %>">
-      </div>
 
-      <div>
         <label for="description_box">
           New Description
         </label>
 
         <textarea id="description_box" name="query_description"><%= @the_story.description %></textarea>
-      </div>
+      
 
       <button>
         Update Story
       </button>
+      </div>
     </form>
   </div>
 

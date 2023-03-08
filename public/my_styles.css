@@ -1,20 +1,60 @@
+* {
+  box-sizing: border-box;
+}
+
 .main-button{
-    background-color:blue;
-    padding:10px; 
+    background-color:black;
+    border: black;
+    padding: 100px; 
     color: white;
-    border-radius: 5px;
+    border-radius: 50 px;
+    font-family: 'Gentium Book Basic', serif;
   }
 
 .main-button:hover{
-    background-color: darkblue;
-    padding:10px; 
+    background-color: darkgray;
+    border: black;
+    padding:100px; 
     color: white;
     border-radius: 5px;
+    font-family: 'Gentium Book Basic', serif;
   }
 
 .nav-button{
     background-color:gray;
-    padding:10px; 
     color: white;
+    padding: 20px; 
+    margin: 10px;
+    margin-top: 20px; 
     border-radius: 5px;
+    font-family: 'Gentium Book Basic', serif;
+    width: 100%;
+  }
+
+  body{
+    font-family: 'Gentium Book Basic', serif;
+  }
+
+  .row{
+    display: flex;
+    justify-content: center;
+    margin: 50px ;
+
+  }  
+  .row-center{
+    display: flex;
+    justify-content: space-evenly;
+
+  }  
+
+  h1{
+    font-family: 'Gentium Book Basic', serif;
+    display: flex;
+    justify-content: center;
+  }
+
+  h2{
+    font-family: 'Gentium Book Basic', serif;
+    display: flex;
+    justify-content: center;
   }

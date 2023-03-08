@@ -14,26 +14,28 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
 
     <link rel="stylesheet" href="css/mystyles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gentium+Book+Basic&display=swap" rel="stylesheet">
     
   </head>
 
   <body>
       <nav>
-        <% if session[:user_id] != nil %>
-          <a href="/"> Home </a>
-          <a href="/stories" class="nav-button"> Library </a>
-          <a href="/my_stories"> My Stories </a>
-          <%# this doesn't work, not user specific? %>
-          <a href="/bookmarks"> My Bookmarks </a>
-          <a href="/user_sign_out"> Sign Out </a>
-        <% else %>
-          <a href="/"> Home </a>
-          <a href="/user_sign_up"> Sign Up </a>
-          <a href="/user_sign_in"> Sign In </a>
-        <% end %>
+        <div class= "row">
+          <% if session[:user_id] != nil %>
+            <div> <a href="/" class="nav-button">Home</a> </div>
+            <div> <a href="/stories" class="nav-button">Library</a> </div>
+            <div> <a href="/my_stories" class="nav-button"> My Stories</a> </div>
+            <div> <a href="/bookmarks" class="nav-button"> My Bookmarks</a> </div>
+            <div> <a href="/user_sign_out" class="nav-button"> Sign Out</a> </div>          
+          <% else %>
+          <div> <a href="/" class="nav-button"> Home </a> </div>
+          <div> <a href="/user_sign_up" class="nav-button"> Sign Up</a> </div>
+          <div> <a href="/user_sign_in" class="nav-button"> Sign In</a> </div>
+          <% end %>
+        </div>
       </nav>
     
-
+<div>
     <%= yield %>
   </body>
 </html>
