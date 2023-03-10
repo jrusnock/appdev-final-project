@@ -45,9 +45,9 @@ class StoriesController < ApplicationController
     
     if the_story.valid?
       the_story.save
-      redirect_to("/stories", { :notice => "Story created successfully." })
+      redirect_to("/stories/#{the_story.id}", { :notice => "Story created successfully." })
     else
-      redirect_to("/stories", { :alert => the_story.errors.full_messages.to_sentence })
+      redirect_to("/stories/new_story", { :alert => the_story.errors.full_messages.to_sentence })
     end
   end
 
