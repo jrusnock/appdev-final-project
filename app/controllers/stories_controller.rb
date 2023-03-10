@@ -38,7 +38,7 @@ class StoriesController < ApplicationController
           messages: [{ role: "user", content: "Create a one paragraph story based on the title: " + the_story.title + "and the description:" + the_story.description}], # Required.
           temperature: 0.7,
       })
-    the_story.story = response.dig("choices", 0, "message", "content").strip
+    the_story.story = response.dig("choices", 0, "message", "content")
     
     the_story.owner_id = session.fetch(:user_id)
     the_story.boomarks_count = 0

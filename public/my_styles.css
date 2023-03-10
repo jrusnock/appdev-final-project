@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-.main-button{
+  .main-button{
     background-color:black;
     border: black;
     padding: 100px; 
@@ -11,7 +11,17 @@
     font-family: 'Gentium Book Basic', serif;
   }
 
-.main-button:hover{
+  .main-button-small{
+    background-color:black;
+    border: black;
+    padding: 20px; 
+    color: white;
+    border-radius: 5 px;
+    font-family: 'Gentium Book Basic', serif;
+  }
+
+
+  .main-button:hover{
     background-color: darkgray;
     border: black;
     padding:100px; 
@@ -20,7 +30,13 @@
     font-family: 'Gentium Book Basic', serif;
   }
 
-.nav-button{
+  .regular-button{
+    display: flex;
+    text-align: center;
+    font-family: 'Gentium Book Basic', serif;
+  }
+
+  .nav-button{
     background-color:gray;
     color: white;
     padding: 20px; 
@@ -38,9 +54,9 @@
   .row{
     display: flex;
     justify-content: center;
-    margin: 50px ;
-
+    margin: 25px;
   }  
+  
   .row-center{
     display: flex;
     justify-content: space-evenly;
@@ -51,10 +67,21 @@
     font-family: 'Gentium Book Basic', serif;
     display: flex;
     justify-content: center;
+    padding: 15px;
   }
 
   h2{
     font-family: 'Gentium Book Basic', serif;
     display: flex;
     justify-content: center;
+  }
+
+  .button{
+    display: flex;
+    justify-content: center;
+  }
+
+  .textarea {
+    width: 250px;
+    height: 100px;
   }
